@@ -1,97 +1,41 @@
-# MCRDP v6
+# MCRDP
 
-## macOS版のダウンロード
+RheoPlus／RheoCompassから出力した測定ファイルを読み込み、必要な変数をExcelへ整理するGUIアプリケーションです。複数の測定ファイルの整理、列名の調整、IGOR用コマンドの生成を行えます。
 
-[GitHub Releases](https://github.com/ren3100-git/MCRDP/releases/latest)からZIPをダウンロードして展開してください。配布アプリはApple Silicon（arm64）用です。Intel Macでの動作は確認していません。別端末での起動、Appleによる公証は未確認です。
+## ダウンロードと起動
 
-ソースコードから実行する場合は、以下の環境構築手順に従ってください。
+[ダウンロードページ](https://github.com/ren3100-git/MCRDP/releases/latest)のAssetsからmacOS用ZIPをダウンロードし、展開したアプリを開いてください。配布アプリの実行にPythonのインストールは不要です。
 
+配布アプリはApple Silicon（arm64）用です。Intel Macおよび別端末での動作は未確認です。Appleによる公証は未確認で、macOSのセキュリティ機能により起動が制限される場合があります。
 
-RheoPlus／RheoCompassの測定ファイルを自動判別し、選択した変数をExcelへ整理するGUIアプリです。
+## 基本的な使い方
 
-## v6の構成
+1. 「フォルダ選択」で測定ファイルを保存したフォルダを選択します。下位のフォルダも対象にする場合は「サブフォルダも検索」を有効にします。
+2. 「Preset」を選択するか、「Variable Selection」で出力する変数を指定します。log10とlinearの指定を確認してください。
+3. 「Output xlsx」に出力ファイル名を設定します。
+4. 「Run」で処理を実行します。
+5. 処理結果を確認し、必要に応じて「Column Names」で出力名や出力対象を調整して「Export Excel」で保存します。自動出力の設定はSettingsで変更できます。
 
-`application/`、`domain/`、`infrastructure/`、`presentation/`を廃止し、処理モジュールを`src/mcrdp/`直下へ集約しました。GUIだけは`src/mcrdp/gui/`へ分離しています。
+元の測定ファイルは保管し、出力内容を確認してから解析に使用してください。
 
-```text
-MCRDP/
-├── config/
-│   └── variables.json
-├── src/mcrdp/
-│   ├── app.py
-│   ├── models.py
-│   ├── processor.py
-│   ├── variables.py
-│   ├── profiles.py
-│   ├── naming.py
-│   ├── excel.py
-│   ├── igor.py
-│   ├── gui/main_window.py
-│   └── gui/settings_dialog.py
-├── tests/
-├── launcher.py
-├── pyproject.toml
-├── requirements.txt
-└── build_macos_v6.sh
-```
+## 設定と出力
 
-## v6の主な機能
+「Settings > Settings…」で変数定義、処理プリセット、列名の規則、Excel出力、IGOR用の既定値を設定できます。設定はユーザー領域に保存されます。
 
-- 複数ファイル横結合時に列Indexを一意化し、`InvalidIndexError`を防止
-- Column Names画面へ読み取り専用の`mean_header`列を追加
-- `NAME_TABLE_COLUMNS`を`models.py`で管理
-- Excelのvariablesシートは、1行目mean、2行目variable key、3行目output_name
-- Settingsから変数定義、処理プリセット、列名規則、Excel出力、IGOR既定値を編集
-- プリセットにlog10／linear、Mean header、recursiveをまとめて保存
-- 出力ファイルの競合時動作、自動出力、出力シートを設定可能
+Excelのvariablesシートは、1行目がmean、2行目がvariable key、3行目がoutput_nameです。「Mean header」で見出しに使用する変数を指定できます。
 
-## 環境構築
+IGOR用コマンドは、対象の変数を指定して「Generate」で生成し、「Copy」でコピーします。
+
+## ソースコードから起動する場合
+
+Python 3.12以上を使用してください。リポジトリをダウンロードし、そのフォルダ内で以下を実行します。
 
 ```bash
-cd MCRDP
-python3.12 -m venv .venv
+python3 -m venv .venv
 source .venv/bin/activate
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
 python -m pip install -e .
-```
-
-## 起動
-
-```bash
 python -m mcrdp
 ```
-
-または、editable install後に次を使用できます。
-
-```bash
-mcrdp
-```
-
-## テスト
-
-```bash
-python -m pip install pytest
-pytest -q
-```
-
-## macOSアプリのビルド
-
-プロジェクトルートに`MCRDP_icon.icns`または`MCRDP_v4_icns.icns`がある場合は自動的に使用します。
-
-```bash
-./build_macos_v6.sh
-```
-
-`config/variables.json`はPyInstaller成果物へ同梱されます。
-
-## 設定
-
-メニューバーの `Settings > Settings…` から、列名の並び順・区切り文字・連番、
-試料名の置換規則、変数定義、入力名の別名、IGORラベル、単位、GUIへの表示、
-処理条件つきプリセット、Excel出力、IGORの既定値を編集できます。
-設定はユーザー領域の `MCRDP/variables.json` に保存され、次回起動時にも使用されます。
-Settings画面ではJSONの読み込み・書き出しと、同梱設定への復元もできます。
 
 ## 開発・配布および免責事項
 

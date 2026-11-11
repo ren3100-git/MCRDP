@@ -1,0 +1,232 @@
+{
+  "schema_version": 2,
+  "variables": [
+    {
+      "key": "gamma",
+      "display_name": "ひずみ",
+      "aliases": ["ひずみ", "せん断ひずみ", "Strain", "Shear Strain"],
+      "igor_label": "\\f02γ",
+      "unit": ""
+    },
+    {
+      "key": "eta",
+      "display_name": "粘度",
+      "aliases": ["粘度", "せん断粘度", "Viscosity", "Shear Viscosity"],
+      "igor_label": "\\f02η",
+      "unit": "Pa·s"
+    },
+    {
+      "key": "NForce",
+      "display_name": "ノーマルフォース",
+      "aliases": ["ノーマルフォース", "ﾉｰﾏﾙﾌｫｰｽ", "Normal Force"],
+      "igor_label": "Normal Force",
+      "unit": "N"
+    },
+    {
+      "key": "full_t",
+      "display_name": "時間",
+      "aliases": ["時間", "Time"],
+      "igor_label": "\\f02t",
+      "unit": "s"
+    },
+    {
+      "key": "t",
+      "display_name": "インターバル時間",
+      "aliases": ["インターバル時間", "Interval Time"],
+      "igor_label": "\\f02t",
+      "unit": "s"
+    },
+    {
+      "key": "M",
+      "display_name": "トルク",
+      "aliases": ["トルク", "ﾄﾙｸ", "Torque"],
+      "igor_label": "",
+      "unit": ""
+    },
+    {
+      "key": "points",
+      "display_name": "測定点数",
+      "aliases": ["測定点数", "Data Points", "Number of Data Points"],
+      "igor_label": "",
+      "unit": ""
+    },
+    {
+      "key": "gap",
+      "display_name": "ギャップ",
+      "aliases": ["ギャップ", "Gap"],
+      "igor_label": "",
+      "unit": ""
+    },
+    {
+      "key": "sigma",
+      "display_name": "せん断応力",
+      "aliases": ["せん断応力", "伸長応力", "Shear Stress", "Extensional Stress", "Extension Stress"],
+      "igor_label": "\\f02σ",
+      "unit": "Pa"
+    },
+    {
+      "key": "Gt",
+      "display_name": "緩和弾性率",
+      "aliases": ["緩和弾性率", "Relaxation Modulus"],
+      "igor_label": "\\f02G\\f00(\\f02t\\f00)",
+      "unit": "Pa"
+    },
+    {
+      "key": "w",
+      "display_name": "角周波数",
+      "aliases": ["角周波数", "Angular Frequency"],
+      "igor_label": "\\f02ω",
+      "unit": "rad·s\\S-1\\M"
+    },
+    {
+      "key": "G1",
+      "display_name": "貯蔵弾性率",
+      "aliases": ["貯蔵弾性率", "Storage Modulus"],
+      "igor_label": "\\f02G'",
+      "unit": "Pa"
+    },
+    {
+      "key": "G2",
+      "display_name": "損失弾性率",
+      "aliases": ["損失弾性率", "Loss Modulus"],
+      "igor_label": "\\f02G''",
+      "unit": "Pa"
+    },
+    {
+      "key": "tand",
+      "display_name": "損失正接",
+      "aliases": ["損失正接", "Loss Tangent", "Loss Factor", "tan δ", "tan(delta)"],
+      "igor_label": "tan(\\f02δ\\f00)",
+      "unit": ""
+    },
+    {
+      "key": "sigma_1",
+      "display_name": "せん断応力のフーリエ係数",
+      "aliases": ["せん断応力のフーリエ係数", "Fourier coefficients of shear stress"],
+      "igor_label": "",
+      "unit": ""
+    },
+    {
+      "key": "sigma_3",
+      "display_name": "せん断応力のフーリエ係数 3rd",
+      "aliases": ["せん断応力のフーリエ係数 3rd", "Fourier coefficients of shear stress 3rd"],
+      "igor_label": "",
+      "unit": ""
+    },
+    {
+      "key": "Gp_1",
+      "display_name": "Fourier coefficients of elastic shear modulus",
+      "aliases": ["Fourier coefficients of elastic shear modulus"],
+      "igor_label": "",
+      "unit": ""
+    },
+    {
+      "key": "Gp_3",
+      "display_name": "Fourier coefficients of elastic shear modulus 3rd",
+      "aliases": ["Fourier coefficients of elastic shear modulus 3rd"],
+      "igor_label": "",
+      "unit": ""
+    },
+    {
+      "key": "Gpp_1",
+      "display_name": "Fourier coefficients of viscous shear modulus",
+      "aliases": ["Fourier coefficients of viscous shear modulus"],
+      "igor_label": "",
+      "unit": ""
+    },
+    {
+      "key": "Gpp_3",
+      "display_name": "Fourier coefficients of viscous shear modulus 3rd",
+      "aliases": ["Fourier coefficients of viscous shear modulus 3rd"],
+      "igor_label": "",
+      "unit": ""
+    },
+    {
+      "key": "g_dot",
+      "display_name": "せん断速度",
+      "aliases": ["せん断速度", "Shear Rate"],
+      "igor_label": "\\f02γ",
+      "unit": "s\\S-1\\M"
+    },
+    {
+      "key": "eps_dot",
+      "display_name": "伸長速度",
+      "aliases": ["伸長速度", "Extension Rate", "Extensional Rate", "Extensional Strain Rate"],
+      "igor_label": "d\\f02ε/dt",
+      "unit": "s\\S-1\\M"
+    },
+    {
+      "key": "epsilon",
+      "display_name": "伸長ひずみ",
+      "aliases": ["伸長ひずみ", "Extension Strain", "Extensional Strain"],
+      "igor_label": "\\f02ε",
+      "unit": ""
+    },
+    {
+      "key": "Et",
+      "display_name": "伸長緩和弾性率",
+      "aliases": ["伸長緩和弾性率", "Extensional Relaxation Modulus", "Extension Relaxation Modulus"],
+      "igor_label": "\\f02E\\f00(\\f02t\\f00)",
+      "unit": "Pa"
+    },
+    {
+      "key": "etaex",
+      "display_name": "伸長粘度",
+      "aliases": ["伸長粘度", "Extensional Viscosity", "Extension Viscosity"],
+      "igor_label": "\\f02η\\Bext",
+      "unit": "Pa·s"
+    },
+    {
+      "key": "Jt",
+      "display_name": "クリープコンプライアンス",
+      "aliases": ["クリープコンプライアンス", "Creep Compliance"],
+      "igor_label": "\\f02J\\f00(\\f02t\\f00)",
+      "unit": "Pa\\S-1\\M"
+    },
+    {
+      "key": "angle",
+      "display_name": "偏向角",
+      "aliases": ["偏向角", "Deflection Angle"],
+      "igor_label": "",
+      "unit": ""
+    },
+    {
+      "key": "T",
+      "display_name": "温度",
+      "aliases": ["温度", "Temperature"],
+      "igor_label": "\\f02T",
+      "unit": "C°"
+    }
+  ],
+  "presets": {
+    "None": {"log10": [], "linear": [], "mean_variable": null, "recursive": false},
+    "Frequency sweep (SAOS)": {"log10": ["w", "G1", "G2"], "linear": [], "mean_variable": null, "recursive": false},
+    "Strain sweep (LAOS)": {"log10": ["gamma", "G1", "G2", "sigma"], "linear": [], "mean_variable": null, "recursive": false},
+    "Viscosity (Time development)": {"log10": ["full_t", "eta"], "linear": [], "mean_variable": null, "recursive": false},
+    "Viscosity (Steady flow)": {"log10": ["g_dot", "eta"], "linear": [], "mean_variable": null, "recursive": false},
+    "Viscosity (extension)": {"log10": ["full_t", "eps_dot", "etaex"], "linear": [], "mean_variable": null, "recursive": false},
+    "Creep": {"log10": ["full_t", "Jt"], "linear": [], "mean_variable": null, "recursive": false},
+    "Relaxation": {"log10": ["full_t", "Gt"], "linear": [], "mean_variable": null, "recursive": false},
+    "Relaxation (extension)": {"log10": ["full_t", "Et"], "linear": [], "mean_variable": null, "recursive": false}
+  },
+  "naming": {
+    "order": "var-num-name",
+    "separator": "_",
+    "number_digits": 3,
+    "number_start": 0,
+    "replacements": {".": "r", "/": "per", "%": "percent"},
+    "strip_trailing_number": true
+  },
+  "export": {
+    "default_output_name": "sorted.xlsx",
+    "include_original": true,
+    "include_name_map": true,
+    "include_igor_command": true,
+    "conflict_policy": "ask",
+    "auto_export": false
+  },
+  "igor": {
+    "default_axis": "L",
+    "remember_selection": true
+  }
+}

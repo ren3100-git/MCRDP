@@ -92,3 +92,9 @@ pytest -q
 処理条件つきプリセット、Excel出力、IGORの既定値を編集できます。
 設定はユーザー領域の `MCRDP/variables.json` に保存され、次回起動時にも使用されます。
 Settings画面ではJSONの読み込み・書き出しと、同梱設定への復元もできます。
+
+## 開発・配布および免責事項
+
+本ソフトウェアは個人が開発・配布しています。開発者はApple Developer Programに登録していません。本ソフトウェアは現状のまま提供され、動作、正確性、特定の目的への適合性を保証しません。利用は利用者自身の責任で行ってください。法令上認められる範囲において、開発者は本ソフトウェアの利用または利用不能により生じた損害、データの損失その他の不利益について責任を負いません。
+
+This software is developed and distributed by an individual developer who is not enrolled in the Apple Developer Program. It is provided as is, without warranties regarding its operation, accuracy, or fitness for a particular purpose. Use of the software is at the user’s own risk. To the extent permitted by applicable law, the developer accepts no liability for damages, data loss, or other adverse consequences arising from the use of, or inability to use, the software.
